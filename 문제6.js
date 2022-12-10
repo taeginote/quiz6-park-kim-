@@ -1,61 +1,27 @@
-// 플레이 리스트 안에 음악은 최대 5개
-// 신곡 5개
-
-let playlist = {
-    music1: {
-        title: "After LIKE",
-        singer: "IVE",
-        date: "2022.08.22",
-    },
-    music2: {
-        title: "자격지심",
-        singer: "비오(Feat.ZICO)",
-        date: "2022.09.29",
-    },
-    music3: {
-        title: "사건의 지평선",
-        singer: "윤하",
-        date: "2022.03.30",
-    },
-    music4: {
-        title: "WHEN I MOVE",
-        singer: "카라",
-        date: "2022.11.29",
-    },
-    music5: {
-        title: "나의 X에게",
-        singer: "경서",
-        date: "2022.04.24",
-    },
-};
-console.log(playlist);
-
-let newplaylist = {
-    music1: {
-        title: "London Boy",
-        singer: "임영웅",
-        date: "2022.11.15",
-    },
-    music2: {
-        title: "잘가요",
-        singer: "주호",
-        date: "2022.12.04",
-    },
-    music3: {
-        title: "모든 계절은 너였다",
-        singer: "길구봉구",
-        date: "2022.11.13",
-    },
-    music4: {
-        title: "찬바람이 불어오네요",
-        singer: "케이시",
-        date: "2022.11.29",
-    },
-    music5: {
-        title: "나쁜X",
-        singer: "비비",
-        date: "2022.11.18",
-    },
-};
-console.log(newplaylist.music5);
+// 아이폰, 아이패드, 에어팟, 노트북, 워치 5개를 준비
+// 300은 1개, 500원은 2개
 //
+function changes(coin, choice) {
+    return coin - choice;
+}
+function game(coin, choice) {
+    let item = {
+        1: "iphone",
+        2: "ipad",
+        3: "airpot",
+        4: "notebook",
+        5: "watch",
+    };
+    let rand1 = Math.floor(Math.random() * 5) + 1;
+    let rand2 = Math.floor(Math.random() * 5) + 1;
+
+    let a = item[rand1];
+    let b = item[rand2];
+    let change = changes(coin, choice);
+
+    if (coin >= choice && choice === 300) return console.log(`잔돈 : ${change}, 상품 : ${a}`);
+    if (coin >= choice && choice === 500)
+        return console.log(`잔돈 : ${change}, 상품1 : ${a}, 상품2 : ${b}`);
+    if (coin < 300) return console.log("돈없어 임마");
+}
+game(1500, 500);
