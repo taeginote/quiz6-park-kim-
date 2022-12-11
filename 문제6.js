@@ -8,26 +8,34 @@
 */
 
 function changes(coin, choice) {
-  return coin - choice;
+    let charge = coin - choice;
+    while (charge >= choice) {
+        if (choice === 300) {
+            charge -= 300;
+        } else if (choice === 500) {
+            charge -= 500;
+        } else break;
+    }
+    return charge;
 }
 function game(coin, choice) {
-  let item = {
-    1: "iphone",
-    2: "ipad",
-    3: "airpot",
-    4: "notebook",
-    5: "watch",
-  };
-  let rand1 = Math.floor(Math.random() * 5) + 1;
-  let rand2 = Math.floor(Math.random() * 5) + 1;
+    let item = {
+        1: "iphone",
+        2: "ipad",
+        3: "airpot",
+        4: "notebook",
+        5: "watch",
+    };
+    let rand1 = Math.floor(Math.random() * 5) + 1;
+    let rand2 = Math.floor(Math.random() * 5) + 1;
 
-  let a = item[rand1];
-  let b = item[rand2];
-  let change = changes(coin, choice);
+    let a = item[rand1];
+    let b = item[rand2];
+    let change = changes(coin, choice);
 
-  if (coin >= choice && choice === 300) return console.log(`잔돈 : ${change}, 상품 : ${a}`);
-  if (coin >= choice && choice === 500)
-    return console.log(`잔돈 : ${change}, 상품1 : ${a}, 상품2 : ${b}`);
-  if (coin < 300) return console.log("돈없어 임마");
+    if (coin >= choice && choice === 300) return console.log(`잔돈 : ${change}, 상품 : ${a}`);
+    if (coin >= choice && choice === 500)
+        return console.log(`잔돈 : ${change}, 상품1 : ${a}, 상품2 : ${b}`);
+    if (coin < 300) return console.log("돈없어 임마");
 }
-game(1500, 500);
+game(1100, 500);
